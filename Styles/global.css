@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .attr-menu {
+    @apply flex justify-center items-center fixed bottom-0 left-[50%] size-64 rounded-full translate-x-[-50%] translate-y-[30%] scale-0 duration-500 ease-in-out;
+  }
+  .attr-menu--active {
+    @apply translate-x-[-50%] translate-y-[50%] scale-100;
+  }
+  .attr-menu-btn {
+    @apply fixed bottom-4 left-[50%] size-16 rounded-full font-roboto text-[1.75rem] bg-attr-dark-gray text-white translate-x-[-50%];
+  }
+  .attr-menu-btn-symbols {
+    @apply font-roboto text-attr-red;
+  }
+  .attr-item {
+    @apply flex justify-center items-center absolute top-0 size-10 rounded-full duration-500 ease-in-out origin-[18px_78px] rotate-0 translate-y-0 bg-attr-dark-gray;
+  }
+  .attr-item-link {
+    @apply flex justify-center items-center size-full p-[0.325rem] fill-white;
+  }
+}
+
+* {
+  font-family: "Kumbh Sans", sans-serif;
+  list-style: none;
+}
+
+html {
+  font-size: 12px;
+}
+
+/** Attribution */

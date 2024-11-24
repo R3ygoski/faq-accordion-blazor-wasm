@@ -1,0 +1,26 @@
+﻿<div class="flex flex-col justify-center pb-3 border-b border-very-dark-grayish-blue/15">
+  <dt class="group flex justify-between py-3 cursor-pointer" @onclick="ToggleQA">
+    <summary class="text-lg group-hover:text-soft-red @(State?"font-bold text-very-dark-blue dark:text-light-grayish-blue":"text-very-dark-grayish-blue dark:text-soft-blue")">@Question</summary>
+    <button class="select-none duration-500 ease-in-out @(State?"rotate-180":"rotate-0")">
+      <img src="./svg/icon-arrow-down.svg" alt="">
+    </button>
+  </dt>
+  <dd class="mt-1 duration-500 ease-in-out overflow-y-hidden @(State?"max-h-36":"max-h-0")">
+    <p class="w-11/12 text-dark-grayish-blue dark:brightness-150">@Answer</p>
+  </dd>
+</div>
+
+@code {
+  [Parameter]
+  public required string Question {get;set;}
+  
+  [Parameter]
+  public required string Answer {get;set;}
+  
+  [Parameter]
+  public required bool State {get;set;}
+
+  private void ToggleQA(){
+    this.State = !this.State;
+  }
+}

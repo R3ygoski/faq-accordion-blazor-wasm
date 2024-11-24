@@ -1,0 +1,44 @@
+﻿@page "/"
+@using Models;
+@using faq_accordion_card.Components
+
+<PageTitle>Frontend Mentor | FAQ Accordion Card</PageTitle>
+
+<main class="flex justify-center items-center min-h-screen ">
+  <div class="fixed w-full -z-10 h-[200vh] bg-gradient-to-b from-soft-violet via-soft-blue to-very-dark-blue translate-y-[50vh] ease-out duration-500 dark:translate-y-[-50vh]"></div>
+  <article class="
+    flex flex-col min-w-[316px] max-w-[430px] mt-24 mx-8 py-20 rounded-3xl bg-gradient-to-b from-white/75 to-white shadow-2xl shadow-black/50
+    lg:flex-row lg:relative lg:min-w-[920px] lg:max-w-auto lg:h-[520px] lg:mt-0 lg:ml-20 lg:py-0 lg:pr-2 lg:pt-4
+    dark:from-very-dark-blue/75 dark:to-very-dark-blue
+  ">
+    <figure class="flex justify-center relative h-24 w-full lg:h-auto lg:overflow-hidden">
+      <FigureBackground/>
+      <Figure/>
+    </figure>
+    
+    <img src="./images/illustration-box-desktop.svg" alt="" class="hidden lg:block lg:absolute lg:-left-40 lg:bottom-44 animate-figure-bounce">
+
+    <section class="px-8 lg:h-full lg:pt-20 lg:pr-24 lg:pl-0 lg:overflow-y-scroll lg:scrollbar-thin lg:scrollbar-thumb-soft-red lg:scrollbar-track-transparent">
+      <h1 class="font-bold text-4.5xl text-center text-very-dark-blue lg:text-left dark:text-light-grayish-blue">FAQ</h1>
+      <dl class="mt-4">
+        @foreach (QA qa in FAQList){
+          <QAComponent Question="@qa.question" Answer="@qa.answer" State="@qa.state"/>
+        }
+      </dl>
+    </section>
+  </article>
+</main>
+
+<ThemeToggler/>
+<Attribution/>
+
+@code {
+  private List<QA> FAQList = new() 
+  {
+    new QA("How many team member can I invite?", "You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan."),
+    new QA("What is the maximum file upload size?", "No more than 2GB. All files in your account must fit your allotted storage space."),
+    new QA("How do I reset my password?","Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you."),
+    new QA("Can I cancel my subscription?","Yes! Send us a message and we’ll process your request no questions asked."),
+    new QA("Do you provide additional support?","Chat and email support is available 24/7. Phone lines are open during normal business hours."),
+  };
+}

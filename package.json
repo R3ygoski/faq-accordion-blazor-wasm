@@ -1,0 +1,17 @@
+{
+  "name": "faq-accordion-card",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "watch": "npx tailwindcss -i ./Styles/global.css -o ./wwwroot/css/app.css --watch",
+    "minify": "npx tailwindcss -i ./Styles/global.css -o ./wwwroot/css/production.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwind-scrollbar": "^3.1.0",
+    "tailwindcss": "^3.4.15"
+  }
+}
